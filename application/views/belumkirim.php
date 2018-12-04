@@ -49,7 +49,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                <?php $idx = 0; ?>
                                 <?php foreach ($pengiriman as $key ) { ?>
                                     <tr>
                                         <td><?php echo $key->noResi ?></td>
@@ -77,10 +77,12 @@
                                                 data-target="#myModalKirimDalam"><button class="btn btn-primary">Kirim</button></a><?php  } ?>
 
 
+                                            <a href="<?php echo base_url("index.php/Client/generate_to_pdf/".$idx) ?>"><button class="btn btn-warning">Print </button></a>
                                             <a href=""><button class="btn btn-default">Update </button></a>
                                             <a href=""><button class="btn btn-danger">Delete </button></a>
                                         </td>
                                     </tr>
+                                    <?php $idx++; ?>
                                     <?php } ?>
                             </tbody>
                                            

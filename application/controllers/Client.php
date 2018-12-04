@@ -20,6 +20,16 @@ class Client extends CI_Controller{
 		$this->load->view('header');
 		$this->load->view('belumkirim', $data);
 	}
+	function generate_to_pdf($index){
+		$this->load->library('pdf');
+		$param = array(
+			'idCabang' => $this->session->userdata('logged_in')['idCabang']
+			);
+		$data['data'] = json_decode($this->curl->simple_get($this->API.'/BelumKirim', $param))[$index];
+		$this->pdf->load_view('print_resi',$data);
+		$this->pdf->render();
+		$this->pdf->stream("laporan.pdf");
+	}
 	function prosesKirim(){
 		$param = array(
 			'idCabang' => $this->session->userdata('logged_in')['idCabang']
