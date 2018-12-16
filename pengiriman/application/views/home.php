@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Maji Express</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -35,35 +35,27 @@
           <span class="oi oi-menu"></span> Menu
         </button>
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="tours.html" class="nav-link">Perusahaan</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Hubungi Kami</a></li>
-          </ul>
         </div>
       </div>
     </nav>
     <!-- END nav -->
     
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url('<?php echo base_url('assets/') ?>images/bg_4.jpg');">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text align-items-center">
-            <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Experience the best trip ever</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="slider-item" style="background-image: url('<?php echo base_url('assets/') ?>images/bg_1.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Making the most out of your holiday</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url('<?php echo base_url('assets/') ?>images/bg_2.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-7 col-sm-12 ftco-animate">
             </div>
           </div>
         </div>
@@ -74,7 +66,6 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Travel Operator Just For You</h1>
             </div>
           </div>
         </div>
@@ -88,8 +79,9 @@
           <div class="col-md-12 tabulation-search">
             <div class="element-animate">
               <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span></span> Lacak Kiriman</a>
-                <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span></span> Tarif Kiriman</a>
+                 <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true"><span></span> Tarif Kiriman</a>
+                <a class="nav-link p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false"><span></span> Lacak Kiriman</a>
+               
                 \
               </div>
             </div>
@@ -133,8 +125,7 @@
           </div>
           <div class="text col-lg-6 ftco-animate">
             <div class="text-inner align-self-start">
-              
-              <h3>Kirim Barang dan Kendaraan Lebih Aman dan Nyaman.</h3>
+  
               <p>Trucking Via Darat<br>
               Cargo Via Laut & Udara<br>
               Kiriman Mobil & Motro<br>
@@ -152,89 +143,32 @@
     <section class="ftco-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 promo ftco-animate">
+          <div class="col-lg-4 promo ftco-animate">
             <a href="#" class="promo-img mb-4" style="background-image: url(<?php echo base_url('assets/') ?>images/promo-1.jpg);"></a>
             <div class="text text-center">
               <h2>Pengiriman YES</h2>
-              <h3 class="price"><span>from</span> 10000/kg</h3>
-              <a href="#" class="read">Read more</a>
+              <h3 class="price"><span>estimasi</span>1-2 hari</h3>
             </div>
           </div>
-          <div class="col-lg-3 promo ftco-animate">
+          <div class="col-lg-4 promo ftco-animate">
             <a href="#" class="promo-img mb-4" style="background-image: url(<?php echo base_url('assets/') ?>images/promo-2.jpg);"></a>
             <div class="text text-center">
               <h2>Pengiriman REG</h2>
-              <h3 class="price"><span>from</span> 8000/kg</h3>
-              <a href="#" class="read">Read more</a>
+              <h3 class="price"><span>estimasi</span>2-3 hari</h3>
             </div>
           </div>
-          <div class="col-lg-3 promo ftco-animate">
+          <div class="col-lg-4 promo ftco-animate">
             <a href="#" class="promo-img mb-4" style="background-image: url(<?php echo base_url('assets/') ?>images/promo-3.jpg);"></a>
             <div class="text text-center">
               <h2>Pengiriman OKE</h2>
-              <h3 class="price"><span>from</span> 5000/kg</h3>
-              <a href="#" class="read">Read more</a>
-            </div>
-          </div>
-          <div class="col-lg-3 promo ftco-animate">
-            <a href="#" class="promo-img mb-4" style="background-image: url(<?php echo base_url('assets/') ?>images/promo-3.jpg);"></a>
-            <div class="text text-center">
-              <h2>Pengiriman Kilat</h2>
-              <h3 class="price"><span>from</span> 20000 kg</h3>
-              <a href="#" class="read">Read more</a>
+              <h3 class="price"><span>estimasi</span>3-4 hari</h3>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2>Our Services</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-sailboat"></span></div></div>
-              <div class="media-body p-2">
-                <h3 class="heading">Special Activities</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-around"></span></div></div>
-              <div class="media-body p-2">
-                <h3 class="heading">Travel Arrangements</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-compass"></span></div></div>
-              <div class="media-body p-2">
-                <h3 class="heading">Private Guide</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>    
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-map-of-roads"></span></div></div>
-              <div class="media-body p-2">
-                <h3 class="heading">Location Manager</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-      </div>
+    
     </section>
 
 
@@ -303,9 +237,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
 
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+         
           </div>
         </div>
       </div>
