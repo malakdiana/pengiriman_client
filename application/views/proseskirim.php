@@ -45,7 +45,7 @@
                                     <td><b>Status</b></td>
                                     <td><b>Penerima</b></td>
                                     <td><b>Detail</b></td>
-                                    <td><b>Aksi</b></td>
+                                
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,10 +64,9 @@
                                                 data-toggle="modal" 
                                                 data-target="#myModalEdit"><button class="btn btn-secondary">Cek</button></a>
                                             
-                                        </td>
-                                        <td><a href=""><button class="btn btn-success">Lokasi</button></a>
-                                            <a href=""><button class="btn btn-default">Update </button></a>
-                                            <a href=""><button class="btn btn-danger">Delete </button></a>
+                                        
+                                     <a href="<?php echo site_url()?>/Client/lokasi/<?php echo $key->noResi?>"><button class="btn btn-success">Lokasi</button></a>
+                                           
                                         </td>
                                     </tr>
                                     <?php } ?>

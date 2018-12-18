@@ -10,10 +10,8 @@ class PengirimanModel extends CI_Model{
 		$this->load->helper('url');
 	}
 	function savePengiriman(){
-		
     $data="14670000";
     $kode= json_decode($this->curl->simple_get($this->API.'/KodePengiriman'));
-  	 //foreach ($kode as $key) {
     if(is_null($kode[0]->noResi)){
       $id="0001";
     }else{
@@ -21,12 +19,10 @@ class PengirimanModel extends CI_Model{
     $lastid = (int) substr($data, -4);
     $newid = $lastid+1;
     $id = substr("0000".$newid, -4);
-    }
-       
+    }  
   	$no="1456".$id;
   	$tgl= date('Y-m-d');
   	$status ="Cek";
-
   	$param = array(
   		'idCabang' =>$this->session->userdata('logged_in')['idCabang'],
   		'tujuan' => $this->input->post('tujuan'),
@@ -35,10 +31,7 @@ class PengirimanModel extends CI_Model{
   	$harga0 = json_decode($this->curl->simple_get($this->API.'/HargaPengiriman',$param));
   	$harga1=$harga0[0]->harga;
   	$jenis=$harga0[0]->idJenis;
-
     $totalharga = (int)$harga1 * (int)($this->input->post('berat'));
-   
-
   	$object = array(
  		'noResi' => $no,
                 'pengirim' => $this->input->post('pengirim'),
@@ -57,7 +50,6 @@ class PengirimanModel extends CI_Model{
                 'namaPenerima' =>"-"
  		);
  $insert = $this->curl->simple_post($this->API.'/Pengiriman', $object,array(CURLOPT_BUFFERSIZE => 10));
-
  redirect('Client/belumKirim','refresh');
 
 	}
@@ -115,5 +107,71 @@ redirect('Client/savePengiriman','refresh');
     $update = $this->curl->simple_put($this->API.'/Pengiriman', $object,
 array(CURLOPT_BUFFERSIZE => 10));
 
+  }
+
+
+  function saveKurir(){
+    $object=array(
+      'idCabang' =>$this->session->userdata('logged_in')['idCabang'],
+      'nama'=> $this->input->post('nama'),
+      'nik' =>$this->input->post('nik'),
+      'alamat' =>$this->input->post('alamat'),
+      'jenisKelamin' =>$this->input->post('jenisKelamin'),
+      'telepon' =>$this->input->post('telepon')
+      );
+     $insert = $this->curl->simple_post($this->API.'/Kurir', $object,array(CURLOPT_BUFFERSIZE => 10));
+      redirect('Client/kurir','refresh');
+
+  }
+
+  function editKurir(){
+     $object=array(
+      'idKurir' =>  $this->input->post('idKurir'),
+      'idCabang' =>$this->session->userdata('logged_in')['idCabang'],
+      'nama'=> $this->input->post('nama'),
+      'nik' =>$this->input->post('nik'),
+      'alamat' =>$this->input->post('alamat'),
+      'jenisKelamin' =>$this->input->post('jenisKelamin'),
+      'telepon' =>$this->input->post('telepon')
+      );
+    
+      $update = $this->curl->simple_put($this->API.'/Kurir', $object,array(CURLOPT_BUFFERSIZE => 10));
+      redirect('Client/kurir','refresh');
+  }
+
+  function editPengiriman(){
+    $tgl= date('Y-m-d');
+    $status ="Cek";
+
+    $param = array(
+      'idCabang' =>$this->session->userdata('logged_in')['idCabang'],
+      'tujuan' => $this->input->post('tujuan'),
+      'jenis' => $this->input->post('jenis')
+      );
+    $harga0 = json_decode($this->curl->simple_get($this->API.'/HargaPengiriman',$param));
+    $harga1=$harga0[0]->harga;
+    $jenis=$harga0[0]->idJenis;
+
+    $totalharga = (int)$harga1 * (int)($this->input->post('berat'));
+
+    $object = array(
+    'noResi' => $this->input->post('noResi'),
+                'pengirim' => $this->input->post('pengirim'),
+                'alamatPengirim' => $this->input->post('alamatPengirim'),
+                'teleponPengirim' => $this->input->post('teleponPengirim'),
+                'penerima' => $this->input->post('penerima'),
+                'alamatPenerima' => $this->input->post('alamatPenerima'),
+                'teleponPenerima' => $this->input->post('teleponPenerima'),
+                'Tanggal' => $tgl,
+                'jenisBarang' => $this->input->post('jenisBarang'),
+                'berat' => $this->input->post('berat'),
+                'idCabang' =>  $this->session->userdata('logged_in')['idCabang'],
+                'idJenis' => $jenis,
+                'status' => $status,
+                'totalHarga'=> $totalharga,
+                'namaPenerima' =>"-"
+    );
+     $update = $this->curl->simple_put($this->API.'/EditPengiriman', $object,array(CURLOPT_BUFFERSIZE => 10));
+      redirect('Client/belumKirim','refresh');
   }
 }

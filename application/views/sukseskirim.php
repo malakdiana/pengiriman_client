@@ -68,7 +68,7 @@
                                         <td>
 
 
-                                            <a href=""><button class="btn btn-default">Update </button></a>
+                                          
                                             <a href=""><button class="btn btn-danger">Delete </button></a>
                                         </td>
                                     </tr>

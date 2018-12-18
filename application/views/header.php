@@ -199,7 +199,6 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url()?>/assets/admin/images/logo-text.png" alt="homepage" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="<?php echo site_url()?>/TabelProfil"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                 <a class="dropdown-item" href="<?php echo site_url()?>/login/logout"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                             
                               
@@ -224,9 +223,11 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo site_url()?>/homeAdmin" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo site_url()?>/CLient/savePengiriman" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Tambah Pengiriman</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo site_url()?>/CLient/daftarHarga" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Data Harga</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Data Cabang </span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Data Pengiriman</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<?php echo site_url()?>/Client/suksesKirim" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Pengiriman Sukses </span></a></li>
                                 <li class="sidebar-item"><a href="<?php echo site_url()?>/Client/prosesKirim" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i>
@@ -235,13 +236,21 @@
                                 <span class="hide-menu"> Belum Dikirim </span></a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Admin</span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Data Barang</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 
                                 <li class="sidebar-item"><a href="<?php echo site_url()?>/Client/barangDatang" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Barang Datang </span></a></li>
-                                <li class="sidebar-item"><a href="<?php echo site_url()?>/Client/konfirmasiBarang" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Konfirmasi Pengiriman </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo site_url()?>/Client/konfirmasiBarang" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Konfirmasi Barang </span></a></li>
                             </ul>
                         </li>
+                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Data Kurir</span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                             <li class="sidebar-item"><a href="<?php echo site_url()?>/Client/addKurir" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Tambah Kurir </span></a></li>
+                              <li class="sidebar-item"><a href="<?php echo site_url()?>/Client/kurir" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Kurir </span></a></li>
+                            </ul>
+                            </li>
+
+                       
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

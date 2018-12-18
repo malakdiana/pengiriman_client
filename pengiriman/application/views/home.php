@@ -79,35 +79,55 @@
           <div class="col-md-12 tabulation-search">
             <div class="element-animate">
               <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                 <a class="nav-link p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false"><span></span> Lacak Kiriman</a>
                  <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true"><span></span> Tarif Kiriman</a>
-                <a class="nav-link p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false"><span></span> Lacak Kiriman</a>
+                
                
-                \
+                
               </div>
             </div>
               
             <div class="tab-content py-5" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><?php echo form_open('Home/cekResi'); ?>
                 <div class="block-17">
                   <form action="" method="post" class="d-block d-lg-flex">
+
                     <div class="fields d-block d-lg-flex">
-                      <div class="textfield-search one-third" style="width: 100%"><input type="text" class="form-control" placeholder="Nomor Resi"></div>
+                      <div class="textfield-search one-third" style="width: 100%"><input type="text" class="form-control" placeholder="Nomor Resi" name="noResi"></div>
+                    </div><br>
+                    <div align="center">
+                    <input type="submit" class="btn btn-warning" value="Tracking">  
                     </div>
-                    <input type="submit" class="search-submit btn btn-primary" value="Tracking">  
+                    <?php echo form_close();?>
                   </form>
                 </div>
               </div>
               <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                 <div class="block-17">
+                <?php echo form_open('Home/cekHarga'); ?>
                   <form action="" method="post" class="d-block d-lg-flex">
                     <div class="fields d-block d-lg-flex">
-                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Kota Asal"></div>
-<div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Kota Tujuan"></div>
-<div class="textfield-search one-third"><input type="number" class="form-control" placeholder="Berat (kg)"></div>
+                      <div class="col-lg-4"><select name="asal" id="" class="form-control">
+                                  <?php   foreach ($cabang as $key) {
+                            ?>
+                                    <option value="<?php echo $key->idCabang?>"><?php echo $key->kota?></option>
+                                    <?php   } ?>
+                                </select>
 
+                      </div>
+<div class="col-lg-4">
+<select name="tujuan" id="" class="form-control">
+                                  <?php   foreach ($cabang as $key) {
+                            ?>
+                                    <option value="<?php echo $key->idCabang?>"><?php echo $key->kota?></option>
+                                    <?php   } ?>
+                                </select></div>
+<div class="col-lg-4"><input type="number" class="form-control" placeholder="Berat (kg)" name="berat"></div>
                       
                     </div>
-                    <input type="submit" class="search-submit btn btn-primary" value="Cek Tarif">  
+                    <br><div align="center">
+                    <input type="submit" class="btn btn-warning" value="Cek Tarif"></div>
+                    <?php echo form_close(); ?> 
                   </form>
                 </div>
               </div>

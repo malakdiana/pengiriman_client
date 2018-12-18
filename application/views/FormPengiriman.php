@@ -182,47 +182,7 @@
             </div>
         </div></div>
 
-        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalEdit" class="modal fade-in">
-        <div class="modal-dialog">
-            <div class="modal-content" style="padding: 20px">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Data</h4>
-                </div>
-     <?php echo form_open_multipart('TabelAdmin/updateAdmin'); ?>
-                <div class="form-group">
-                <input type="text" name="idUserAdmin" id="idUserAdmin" hidden="">
-                <input type="text" name="password2"  id="password2" hidden="">
-                <label for="">Username</label>
-                <input type="text" class="form-control" id="username" name="username" value="" placeholder="username" >
-                </div>
-
-                <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" class="form-control" name="password" id="password" value="" placeholder="password" >
-                </div>
-                <div class="form-group">
-                <label for="">Nama</label>
-                <input type="text" class="form-control" name="nama" id="nama" value="" placeholder="password" >
-                </div>
-                <div class="form-group">
-                <label for="">Alamat</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" value="" >
-                </div>
-                <div class="form-group">
-                <label for="">Telepon</label>
-                <input type="text" class="form-control" name="telepon" id="telepon" value="" >
-                </div>
-                <div class="form-group">
-                <label for="">Email</label>
-                <input type="text" class="form-control" name="email" id="email" value="">
-                </div>
-              
-                <div class="form-group">
-                <label for="col-lg-2 col-sm-2 control-label">Saldo</label>
-                <input type="text" class="form-control" name="saldo" id="saldo" value="" placeholder="" >
-                </div>
-                <center><button type="submit" class="btn btn-primary">Submit</button></center>
-                <?php echo form_close(); ?>
+        
     </div>
     </div>
     </div>
@@ -236,21 +196,6 @@
     <!-- ============================================================== -->
      <script src="<?php echo base_url()?>/assets/admin/libs/jquery/dist/jquery.min.js"></script>
 
-  <script type="text/javascript">
-    function showmodal(id,username,password,nama,alamat,telepon,email,saldo){
-        document.getElementById('idUserAdmin').value = id;
-        document.getElementById('username').value=username;
-        document.getElementById('nama').value=nama;
-        document.getElementById('password').value=password;
-        document.getElementById('password2').value=password;
-        document.getElementById('email').value=email;      
-        document.getElementById('alamat').value=alamat;
-        document.getElementById('telepon').value=telepon;
-         document.getElementById('saldo').value=saldo;
-
-        
-    }
-</script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?php echo base_url()?>/assets/admin/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="<?php echo base_url()?>/assets/admin/libs/bootstrap/dist/js/bootstrap.min.js"></script>

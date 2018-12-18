@@ -15,12 +15,10 @@ class Login extends CI_Controller{
 			$this->load->view('login_view');
 		} else{
 			$session_data=$this->session->userdata('logged_in');
-			$data['username']=$session_data['username'];
-			
+			$data['username']=$session_data['username'];		
 				redirect('CLient/savePengiriman','refresh');
 	}
 	}
-
 	public function cekDb($password){
 	$this->load->helper('url','form');
 		$this->load->library('form_validation');

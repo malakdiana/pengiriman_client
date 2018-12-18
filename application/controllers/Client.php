@@ -9,7 +9,17 @@ class Client extends CI_Controller{
 		$this->load->helper('form');
 		$this->load->helper('url');
 	}
-
+	
+function generate_to_pdf($index){
+		$this->load->library('pdf');
+		$param = array(
+			'idCabang' => $this->session->userdata('logged_in')['idCabang']
+			);
+		$data['data'] = json_decode($this->curl->simple_get($this->API.'/BelumKirim', $param))[$index];
+		$this->pdf->load_view('print_resi',$data);
+		$this->pdf->render();
+		$this->pdf->stream("laporan.pdf");
+	}
 	function belumKirim(){
 		$param = array(
 			'idCabang' => $this->session->userdata('logged_in')['idCabang']
@@ -20,20 +30,11 @@ class Client extends CI_Controller{
 		$this->load->view('header');
 		$this->load->view('belumkirim', $data);
 	}
-	function generate_to_pdf($index){
-		$this->load->library('pdf');
-		$param = array(
-			'idCabang' => $this->session->userdata('logged_in')['idCabang']
-			);
-		$data['data'] = json_decode($this->curl->simple_get($this->API.'/BelumKirim', $param))[$index];
-		$this->pdf->load_view('print_resi',$data);
-		$this->pdf->render();
-		$this->pdf->stream("laporan.pdf");
-	}
 	function prosesKirim(){
 		$param = array(
 			'idCabang' => $this->session->userdata('logged_in')['idCabang']
 			);
+
 		$data['pengiriman'] = json_decode($this->curl->simple_get($this->API.'/KirimOnProcess', $param));
 		$data['kurirr']= json_decode($this->curl->simple_get($this->API.'/Kurir', $param));
 		$data['tujuan']= json_decode($this->curl->simple_get($this->API.'/Tujuan', $param));
@@ -80,7 +81,7 @@ class Client extends CI_Controller{
 	function savePengiriman(){
 		$this->load->helper('url','form');
 		$this->load->library('form_validation');
-$this->form_validation->set_rules('pengirim', 'NAMA PENGIRIM', 'trim|required');
+		$this->form_validation->set_rules('pengirim', 'NAMA PENGIRIM', 'trim|required');
 		$this->form_validation->set_rules('alamatPengirim', 'ALAMAT PENGIRIM', 'trim|required');
 		$this->form_validation->set_rules('teleponPengirim', 'TELEPON PENGIRIM', 'trim|required');
 		$this->form_validation->set_rules('penerima', 'NAMA PENERIMA', 'trim|required');
@@ -102,6 +103,17 @@ $this->form_validation->set_rules('pengirim', 'NAMA PENGIRIM', 'trim|required');
 		}
 	}
 
+	function update($noResi){
+			$param = array(
+			'noResi' => $noResi
+			);
+		$data['kota'] = json_decode($this->curl->simple_get($this->API.'/Cabang'));
+		$data['jeniss']= json_decode($this->curl->simple_get($this->API.'/Jenis'));
+		$data['pengiriman'] = json_decode($this->curl->simple_get($this->API.'/EditPengiriman', $param));
+			$this->load->view('header');
+		$this->load->view('editPengiriman',$data);
+	}
+
 	function saveKirim(){
 		$this->load->model('PengirimanModel');
 		$this->PengirimanModel->saveKirim();	
@@ -113,6 +125,59 @@ $this->form_validation->set_rules('pengirim', 'NAMA PENGIRIM', 'trim|required');
 	function diterima(){
 		$this->load->model('PengirimanModel');
 		$this->PengirimanModel->diterima();
+	}
+	function delete($resi){
+		$delete = $this->curl->simple_delete($this->API.'/Pengiriman', array('noResi'=>$resi),array(CURLOPT_BUFFERSIZE => 10));
+		redirect('Client/belumKirim','refresh');
+	}
+	function lokasi($resi){
+		$param = array(
+			'noResi' => $resi
+			);
+		$data['lokasi'] = json_decode($this->curl->simple_get($this->API.'/Lokasi', $param));
+		
+		$this->load->view('header');
+		$this->load->view('lokasi', $data);
+
+	}
+
+	function addKurir(){
+		$this->load->helper('url','form');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('nama', 'NAMA KURIR', 'trim|required');
+		$this->form_validation->set_rules('telepon', 'TELEPON', 'trim|required');
+		$this->form_validation->set_rules('nik', 'NIK', 'trim|required');
+		if ($this->form_validation->run() == FALSE) {
+		$this->load->view('header');
+		$this->load->view('addKurir');
+		}else{
+			$this->load->model('PengirimanModel');
+			$this->PengirimanModel->saveKurir();
+
+		}
+	}
+
+	function kurir(){
+		$param = array(
+			'idCabang' => $this->session->userdata('logged_in')['idCabang']
+			);
+		$data['kurir']= json_decode($this->curl->simple_get($this->API.'/Kurir', $param));
+		$this->load->view('header');
+		$this->load->view('daftarKurir', $data);
+
+	}
+	function editKurir(){
+		$this->load->model('PengirimanModel');
+			$this->PengirimanModel->editKurir();
+	}
+	function editPengiriman(){
+		$this->load->model('PengirimanModel');
+			$this->PengirimanModel->editPengiriman();
+	}
+	function daftarHarga(){
+	$datax['kota'] = json_decode($this->curl->simple_get($this->API.'/Jenis'));
+		$this->load->view('header');
+		$this->load->view('daftarHarga', $datax);
 	}
 
 

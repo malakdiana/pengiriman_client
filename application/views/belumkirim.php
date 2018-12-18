@@ -49,7 +49,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $idx = 0; ?>
+                                 <?php $idx = 0; ?>
                                 <?php foreach ($pengiriman as $key ) { ?>
                                     <tr>
                                         <td><?php echo $key->noResi ?></td>
@@ -62,7 +62,7 @@
                                             <a href="javascript:void(0);" 
                                             onclick="showmodal('<?php echo $key->pengirim ?>','<?php echo $key->alamatPengirim ?>','<?php echo $key->teleponPengirim ?>','<?php echo $key->penerima ?>','<?php echo $key->alamatPenerima ?>','<?php echo $key->teleponPenerima ?>','<?php echo $key->jenisBarang ?>','<?php echo $key->berat ?>')" 
                                                 data-toggle="modal" 
-                                                data-target="#myModalEdit"><button class="btn btn-secondary">Cek</button></a>
+                                                data-target="#myModalEdit"><button class="btn btn-secondary"><i class="mdi mdi-clipboard-outline" title="cek detail barang"></i></button></a>
                                             
                                         </td>
                                         <td>
@@ -70,19 +70,18 @@
                                         <a href="javascript:void(0);" 
                                             onclick="showmodalkirim('<?php echo $key->noResi ?>')" 
                                                 data-toggle="modal" 
-                                                data-target="#myModalKirim"><button class="btn btn-primary">Kirim</button></a><?php }else{ ?>
+                                                data-target="#myModalKirim"><button class="btn btn-primary"><i class="mdi mdi-send" title="kirim barang"></i></button></a><?php }else{ ?>
                                                 <a href="javascript:void(0);" 
                                             onclick="showmodalkirimdalam('<?php echo $key->noResi ?>','<?php echo $key->alamatPenerima ?>')" 
                                                 data-toggle="modal" 
-                                                data-target="#myModalKirimDalam"><button class="btn btn-primary">Kirim</button></a><?php  } ?>
+                                                data-target="#myModalKirimDalam"><button class="btn btn-primary"><i class="mdi mdi-send" title="kirim barang"></i></button></a><?php  } ?>
 
-
-                                            <a href="<?php echo base_url("index.php/Client/generate_to_pdf/".$idx) ?>"><button class="btn btn-warning">Print </button></a>
-                                            <a href=""><button class="btn btn-default">Update </button></a>
-                                            <a href=""><button class="btn btn-danger">Delete </button></a>
+                                             <a href="<?php echo base_url("index.php/Client/generate_to_pdf/".$idx) ?>"><button class="btn btn-warning"><i class="mdi mdi-printer" title="edit data pengiriman"></i> </button></a>
+                                            <a href="<?php echo site_url()?>/Client/update/<?php echo $key->noResi ?>"><button class="btn btn-default"><i class="mdi mdi-table-edit" title="edit data pengiriman"></i></button></a>
+                                            <a href="<?php echo site_url()?>/Client/delete/<?php echo $key->noResi ?>"><button class="btn btn-danger"><i class="mdi mdi-delete" title="hapus barang"></i></button></a>
                                         </td>
                                     </tr>
-                                    <?php $idx++; ?>
+                                     <?php $idx++; ?>
                                     <?php } ?>
                             </tbody>
                                            
